@@ -71,14 +71,15 @@ async def create_employee(
         age: int = Form(..., description=""),
         position: str = Form(..., description=""),
         remote: bool = Form(..., description=""),
-        file: UploadFile = File(),
+        # file: UploadFile = File(),
         db: Session = Depends(get_db)
 ):
 
     logger.info(f"remote_bool: {remote}")
 
     # Forward the image to Service 2 to get the employee ID
-    employee_id = process_id(file.file.read())
+    # employee_id = process_id(file.file.read())
+    employee_id = 1
 
     logger.info(f"employee_id: {employee_id}")
 
